@@ -1,4 +1,4 @@
-package utils
+package math
 
 func Factorial(num int) (val int) {
 	if num <= 1 {

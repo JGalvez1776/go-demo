@@ -3,12 +3,12 @@ package main
 import (
 	"fmt"
 
-	exortexample "./src/syntax/export-example"
-	//utils "./src/utils/"
+	exortexample "github.com/JGalvez1776/go-demo/src/syntax/export-example"
+	math "github.com/JGalvez1776/go-demo/src/utils"
 )
 
 func main() {
 	fmt.Println("This is working")
 	fmt.Println(exortexample.Public)
-	//fmt.Println(utils.Factorial((4)))
+	fmt.Println(math.Factorial((4)))
 }
