@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-type Player byte
+type Player string
 
 // Syntax for a constant (Read only)
 const HEIGHT = 6
@@ -20,16 +20,14 @@ type Game struct {
 }
 
 func (game Game) PrintBoard() {
-	fmt.Println()
-
 	for i := 0; i < HEIGHT; i++ {
-		fmt.Println("-" + strings.Repeat("-", WIDTH))
+		fmt.Println("-" + strings.Repeat("--", WIDTH))
 		for index := 0; index < WIDTH; index++ {
-			fmt.Printf("|%v", game.board[i][index])
+			fmt.Print("|" + game.board[i][index])
 		}
 		fmt.Println("|")
 	}
-	fmt.Println("-" + strings.Repeat("-", WIDTH))
+	fmt.Println("-" + strings.Repeat("--", WIDTH))
 
 }
 
@@ -43,7 +41,7 @@ func (game *Game) Place(column int) error {
 	rowIndex := HEIGHT - 1
 
 	// Go doesn't have while loops :')
-	for loop := true; loop; loop = rowIndex >= 0 && game.board[rowIndex][column] == ' ' {
+	for loop := true; loop; loop = rowIndex >= 0 && game.board[rowIndex][column] == " " {
 		rowIndex++
 	}
 
@@ -61,12 +59,17 @@ func (game Game) getPlayer() Player {
 }
 
 func initializeGame() (game Game) {
-	var player1 Player = 'X'
-	var player2 Player = 'O'
+	var player1 Player = "X"
+	var player2 Player = "O"
 
 	// Initalize values. Note game is already initialized from the return value
 	game.players = [2]Player{player1, player2}
 	game.board = [HEIGHT][WIDTH]Player{}
+	for y := 0; y < HEIGHT; y++ {
+		for x := 0; x < WIDTH; x++ {
+			game.board[y][x] = " "
+		}
+	}
 	game.currentPlayer = 0
 	return game
 }

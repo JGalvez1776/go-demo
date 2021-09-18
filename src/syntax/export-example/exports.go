@@ -7,8 +7,8 @@ var Public = "Hi this string is exported!"
 var private = "Hi this string is not exported!"
 
 // We can export this function and have it reference a variable that is not exported
-func Export() {
-	print(private)
+func Export() string {
+	return private
 }
 
 // Also note, it is a compilation error to declare a variable and never use it
