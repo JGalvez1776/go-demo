@@ -2,6 +2,8 @@ package game
 
 import (
 	"errors"
+	"fmt"
+	"strings"
 )
 
 type Player byte
@@ -18,17 +20,16 @@ type Game struct {
 }
 
 func (game Game) PrintBoard() {
+	fmt.Println()
 
-	//fmt.Println()
-	//
-	//for i := 0; i < HEIGHT; i++ {
-	//	fmt.Println("-" + strings.Repeat("-", WIDTH))
-	//	for index := 0; index < WIDTH; index++ {
-	//		fmt.Printf("|%v", game.board[i][index])
-	//	}
-	//	fmt.Println("|")
-	//}
-	//fmt.Println("-" + strings.Repeat("-", WIDTH))
+	for i := 0; i < HEIGHT; i++ {
+		fmt.Println("-" + strings.Repeat("-", WIDTH))
+		for index := 0; index < WIDTH; index++ {
+			fmt.Printf("|%v", game.board[i][index])
+		}
+		fmt.Println("|")
+	}
+	fmt.Println("-" + strings.Repeat("-", WIDTH))
 
 }
 
