@@ -3,6 +3,7 @@ package game
 import (
 	"errors"
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -77,12 +78,23 @@ func initializeGame() (game Game) {
 
 func Start() {
 	var game Game = initializeGame()
-	for i := 0; i < 10; i++ {
+	var input string
+	var errorCode error
+	var column int
+
+	for {
 		game.PrintBoard()
-		var errorCode error = game.Place(2)
+		fmt.Println(game.getPlayer() + "'s turn: ")
+		fmt.Scanln(&input)
+		fmt.Println(input)
+		// The _ serves as a variable to save a variable and it shushs the compiler
+		// as the Go compiler requires that every assignment to a variable is used
+		column, _ = strconv.Atoi(input)
+		fmt.Println(column)
+		errorCode = game.Place(column)
 		if errorCode != nil {
 			fmt.Println(errorCode)
 		}
 	}
-	game.PrintBoard()
+
 }
