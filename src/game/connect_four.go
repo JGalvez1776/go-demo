@@ -44,8 +44,9 @@ func (game *Game) Place(column int) error {
 	for loop := true; loop; loop = rowIndex < HEIGHT && game.board[rowIndex][column] == " " {
 		rowIndex++
 	}
+
 	rowIndex--
-	if rowIndex == -1 {
+	if game.board[rowIndex][column] != " " {
 		return errors.New("ColumnFull")
 	}
 	fmt.Println(rowIndex)
@@ -76,15 +77,12 @@ func initializeGame() (game Game) {
 
 func Start() {
 	var game Game = initializeGame()
+	for i := 0; i < 10; i++ {
+		game.PrintBoard()
+		var errorCode error = game.Place(2)
+		if errorCode != nil {
+			fmt.Println(errorCode)
+		}
+	}
 	game.PrintBoard()
-	game.Place(2)
-	fmt.Println("NEXT")
-	game.PrintBoard()
-	game.Place(2)
-	fmt.Println("NEXT")
-	game.PrintBoard()
-	game.Place(2)
-	fmt.Println("NEXT")
-	game.PrintBoard()
-	fmt.Println("DONE")
 }
