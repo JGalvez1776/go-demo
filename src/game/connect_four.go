@@ -42,7 +42,7 @@ func (game *Game) Place(column int) error {
 
 	// Go doesn't have while loops :')
 	for loop := true; loop; loop = rowIndex >= 0 && game.board[rowIndex][column] == " " {
-		rowIndex++
+		rowIndex--
 	}
 
 	if rowIndex == -1 {
@@ -76,5 +76,7 @@ func initializeGame() (game Game) {
 
 func Start() {
 	var game Game = initializeGame()
+	game.PrintBoard()
+	game.Place(2)
 	game.PrintBoard()
 }
