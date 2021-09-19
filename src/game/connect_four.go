@@ -38,17 +38,17 @@ func (game *Game) Place(column int) error {
 	}
 
 	// Alternate way of declaring variables (Can only be done in function / methods)
-	rowIndex := HEIGHT - 1
+	rowIndex := 0
 
 	// Go doesn't have while loops :')
-	for loop := true; loop; loop = rowIndex >= 0 && game.board[rowIndex][column] == " " {
-		rowIndex--
+	for loop := true; loop; loop = rowIndex < HEIGHT && game.board[rowIndex][column] == " " {
+		rowIndex++
 	}
-
+	rowIndex--
 	if rowIndex == -1 {
 		return errors.New("ColumnFull")
 	}
-
+	fmt.Println(rowIndex)
 	game.board[rowIndex][column] = game.getPlayer()
 	game.currentPlayer = (game.currentPlayer + 1) % len(game.players)
 	return nil
@@ -78,5 +78,13 @@ func Start() {
 	var game Game = initializeGame()
 	game.PrintBoard()
 	game.Place(2)
+	fmt.Println("NEXT")
 	game.PrintBoard()
+	game.Place(2)
+	fmt.Println("NEXT")
+	game.PrintBoard()
+	game.Place(2)
+	fmt.Println("NEXT")
+	game.PrintBoard()
+	fmt.Println("DONE")
 }
