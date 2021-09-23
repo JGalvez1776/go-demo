@@ -1,1 +1,3 @@
 While loops don't exist
+The compiler forces some style such as brackets.
+Error handling is really clunky
