@@ -93,7 +93,14 @@ func Start() {
 		fmt.Println(column)
 		errorCode = game.Place(column)
 		if errorCode != nil {
-			fmt.Println(errorCode)
+			if errorCode.Error() == "ColumnOutOfBounds" {
+				fmt.Printf("Please insert and integer between 0 and %v.\n", WIDTH-1)
+			} else if errorCode.Error() == "ColumnFull" {
+				fmt.Println("Please select a column that is not full.")
+			} else {
+				fmt.Println("Unknown Error")
+			}
+			fmt.Println("Try Again:")
 		}
 	}
 
