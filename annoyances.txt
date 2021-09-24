@@ -2,3 +2,5 @@ While loops don't exist
 Variable type instead of type variable
 Variables not being used is a compilation error (Even assignments of the variable)
 Compile errors in general if something is not used
+The compiler forces some style such as brackets.
+Error handling is really clunky
