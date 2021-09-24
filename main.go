@@ -26,7 +26,7 @@ func main() {
 		} else if input == "export" {
 			message := exportexample.Export()
 			fmt.Printf("We know have \"%v\" saved as a variable in main\n", message)
-			fmt.Printf("We can also access the public value of \"%v\"", exportexample.Public)
+			fmt.Printf("We can also access the public value of \"%v\"\n", exportexample.Public)
 		} else if input == "slice" {
 			slice.Slice()
 		} else if input == "help" {
