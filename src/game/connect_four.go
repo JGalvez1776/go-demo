@@ -95,6 +95,8 @@ func Start() {
 		if errorCode != nil {
 			fmt.Println(errorCode)
 		}
+
+		// TODO: Remember to add the game check
 	}
 
 }
