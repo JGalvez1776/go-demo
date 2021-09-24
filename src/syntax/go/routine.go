@@ -19,8 +19,8 @@ func Go_routine_example() {
 	time.Sleep(500000000)
 	fmt.Println("in the background")
 	<-channel
-	fmt.Printf("We know have %v sent back from function\n", channel)
-	fmt.Println("spent 60 seconds waiting")
+	fmt.Printf("We know have %v sent back from the \n", channel)
+	fmt.Println("function that spent 60 seconds waiting")
 	fmt.Println("This function is now done")
 
 }
