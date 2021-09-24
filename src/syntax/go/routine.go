@@ -8,7 +8,7 @@ import (
 func Go_routine_example() {
 	channel := make(chan int)
 
-	go wait_a_long_time(1000000000, channel)
+	go wait_a_long_time(1500000000, channel)
 	time.Sleep(1000000)
 	fmt.Println("Here we back in the function that called the wait")
 	<-channel
@@ -18,7 +18,7 @@ func Go_routine_example() {
 }
 
 func wait_a_long_time(time_to_sleep int, channel chan int) {
-	fmt.Println("After me we are waiting for 10 seconds then returning")
+	fmt.Println("After me we are waiting for 15 seconds then returning")
 	time.Sleep(time.Duration(time_to_sleep))
 	fmt.Println("The long wait is now over")
 	channel <- time_to_sleep
