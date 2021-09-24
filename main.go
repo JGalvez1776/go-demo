@@ -8,6 +8,7 @@ import (
 
 	game "github.com/JGalvez1776/go-demo/src/game"
 	exportexample "github.com/JGalvez1776/go-demo/src/syntax/export-example"
+	goroutine "github.com/JGalvez1776/go-demo/src/syntax/go"
 	slice "github.com/JGalvez1776/go-demo/src/syntax/slice-example"
 )
 
@@ -31,6 +32,8 @@ func main() {
 			slice.Slice()
 		} else if input == "help" {
 			help()
+		} else if input == "goroutine" {
+			goroutine.Go_routine_example()
 		} else {
 			fmt.Println("Please enter a valid command. Enter \"help\" for more information")
 		}
@@ -43,5 +46,5 @@ func help() {
 	fmt.Println("game = A basic connect-four game")
 	fmt.Println("export = A demo to go alongside src/syntax/export-example/exports.go that shows how exports work in Go.")
 	fmt.Println("slice = A demo to go alongside src/syntax/slice-example/slices.go that shows of the slice type.")
-
+	fmt.Println("goroutine = A demo to go alongside src/syntax/go that shows off gorountines and async code in Go")
 }
