@@ -19,6 +19,6 @@ func Slice() {
 	fmt.Printf("Array: %v\n", array)
 	fmt.Println("We can also modify the size of a slice")
 	slice = slice[:4]
-	fmt.Printf("slice[:4] = %v", slice)
+	fmt.Printf("slice[:4] = %v\n", slice)
 
 }
