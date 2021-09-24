@@ -9,6 +9,7 @@ func Go_routine_example() {
 	channel := make(chan int)
 
 	go wait_a_long_time(1000000000, channel)
+	time.Sleep(1000000)
 	fmt.Println("Here we back in the function that called the wait")
 	<-channel
 	fmt.Printf("We know have %v sent back from waiting", channel)
